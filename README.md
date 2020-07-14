@@ -1,6 +1,7 @@
 # koa-sofgs-helper
 > sqlite3 session of koa-generic-session<br>
-koa-sofgs-helper works with koa-generic-session (a generic session middleware for koa).
+koa-sofgs-helper works with koa-generic-session (a generic session middleware for koa).<br>
+reference resources: [koa-sqlite3-session](https://github.com/ChiChou/koa-sqlite3-session)
 
 ## Example
 ```javascript
