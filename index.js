@@ -1,7 +1,10 @@
 'use strict';
 
+const fs = require('fs');
 const path = require('path');
 const SQLite = require('better-sqlite3');
+
+const DB_PATH = path.join(process.cwd(), 'database');
 
 const DEFAULTS = {
     verbose: console.log
@@ -21,7 +24,9 @@ const flushSql = `DELETE FROM ${TABLE_NAME} WHERE expires < ?`;
 module.exports = class {
     constructor($options) {
         this.config = $options || {};
-        this.dsn = this.config.dsn || path.join(process.cwd(), 'database', 'session.db3');
+        this.dsn = this.config.dsn || path.join(DB_PATH, 'session.db3');
+        this.dbPath = path.parse(this.dsn).dir;
+        if (!fs.existsSync(this.dbPath)) fs.mkdirSync(this.dbPath);
         this.options = this.config.sqlite || DEFAULTS;
         this.ttl = this.config.ttl || DEFAULT_TTL;
         this.flushInterval = this.config.flushInterval || DEFAULT_INTERVAL;

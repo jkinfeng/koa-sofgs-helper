@@ -19,10 +19,13 @@
     "koa sqlite",
     "koa-generic-session sqlite"
   ],
-  "author": "",
+  "author": "jkin.feng",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jkinfeng/koa-sofgs-helper/issues"
   },
-  "homepage": "https://github.com/jkinfeng/koa-sofgs-helper#readme"
+  "homepage": "https://github.com/jkinfeng/koa-sofgs-helper#readme",
+  "dependencies": {
+    "better-sqlite3": "^7.1.0"
+  }
 }
